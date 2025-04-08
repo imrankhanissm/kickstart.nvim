@@ -1,24 +1,24 @@
--- return {
--- 'catppuccin/nvim',
--- name = 'catppuccin',
--- priority = 1000,
--- opts = {
---   transparent_background = true,
--- },
--- config = function()
---   require('catppuccin').setup {
---     transparent_background = true,
---     integrations = {
---       nvimtree = {
---         enabled = true,
---         show_root = true,
---         transparent_panel = true,
---       },
---     },
---   }
---   vim.cmd.colorscheme 'catppuccin'
--- end,
--- }
+return {
+  'catppuccin/nvim',
+  name = 'catppuccin',
+  priority = 1000,
+  opts = {
+    transparent_background = true,
+  },
+  config = function()
+    require('catppuccin').setup {
+      transparent_background = true,
+      integrations = {
+        nvimtree = {
+          enabled = true,
+          show_root = true,
+          transparent_panel = true,
+        },
+      },
+    }
+    vim.cmd.colorscheme 'catppuccin'
+  end,
+}
 
 -- return {
 --   'arcticicestudio/nord-vim',
@@ -30,10 +30,10 @@
 --   end,
 -- }
 
-return {
-  'shaunsingh/nord.nvim',
-  config = function()
-    vim.g.nord_disable_background = true
-    vim.cmd 'colorscheme nord'
-  end,
-}
+-- return {
+--   'shaunsingh/nord.nvim',
+--   config = function()
+--     vim.g.nord_disable_background = true
+--     vim.cmd 'colorscheme nord'
+--   end,
+-- }
