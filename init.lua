@@ -696,6 +696,7 @@ require('lazy').setup({
         -- ts_ls = {},
         omnisharp = {},
         angularls = {},
+        html = {},
         pylsp = {},
 
         lua_ls = {
