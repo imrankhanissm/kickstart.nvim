@@ -14,28 +14,31 @@ return {
           name = 'launch - netcoredbg',
           request = 'launch',
           program = function()
-            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            return vim.fn.input('Path to dll', vim.fn.getcwd(), 'file')
           end,
         },
+        {
+          type = 'coreclr',
+          name = 'Attach to Process',
+          request = 'attach',
+          processId = require('dap.utils').pick_process,
+        },
       }
-      vim.keymap.set('n', '<Leader>dtb', function()
+      vim.keymap.set('n', '<Leader>db', function()
         dap.toggle_breakpoint()
-      end, { desc = '[D]ebug [T]oggle [B]reakpoint' })
+      end, { desc = '[D]ebug toggle [B]reakpoint' })
       vim.keymap.set('n', '<Leader>dc', function()
         dap.continue()
       end, { desc = '[D]ebug [C]ontinue' })
-      vim.keymap.set('n', '<Leader>dsi', function()
+      vim.keymap.set('n', '<Leader>di', function()
         dap.step_into()
       end, { desc = '[D]ebug step [I]nto' })
-      vim.keymap.set('n', '<Leader>dso', function()
+      vim.keymap.set('n', '<Leader>do', function()
         dap.step_out()
-      end, { desc = '[D]ebug [S]tep [O]ut' })
-      vim.keymap.set('n', '<Leader>dsp', function()
+      end, { desc = '[D]ebug step [O]ut' })
+      vim.keymap.set('n', '<Leader>ds', function()
         dap.close()
-      end, { desc = '[D]ebug [S]to[P]' })
-      vim.keymap.set('n', '<Leader>dtu', function()
-        dap.repl.toggle()
-      end, { desc = '[D]ebug [T]oggle [U]I' })
+      end, { desc = '[D]ebug [S]top' })
     end,
   },
   {
@@ -56,6 +59,9 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
+      vim.keymap.set('n', '<Leader>du', function()
+        dapui.toggle()
+      end, { desc = '[D]ebug toggle [U]I' })
     end,
   },
 }
