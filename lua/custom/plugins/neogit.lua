@@ -32,6 +32,12 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
   },
   config = function()
+    local neogit = require 'neogit'
+    neogit.setup {
+      commit_editor = {
+        show_staged_diff = false,
+      },
+    }
     vim.keymap.set('n', '<leader>ng', '<cmd>Neogit<CR>', { desc = '[N]eo[G]it' })
   end,
 }
