@@ -34,6 +34,8 @@ return {
   config = function()
     local neogit = require 'neogit'
     neogit.setup {
+      disable_hint = true,
+      disable_line_numbers = false,
       commit_editor = {
         show_staged_diff = false,
       },
